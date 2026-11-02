@@ -51,6 +51,8 @@ main,header.nav,footer{position:relative;z-index:1}
 .rot span{display:block;animation:up .6s cubic-bezier(.2,.7,.2,1)}
 @keyframes up{from{transform:translateY(100%);opacity:0}to{transform:none;opacity:1}}
 .status{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-size:13px;color:var(--muted)}
+.cvbtn{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-weight:500;font-size:14px;padding:10px 18px;border-radius:999px;border:1px solid var(--accent);color:var(--ink);background:rgba(194,164,255,.08)}
+.cvbtn:hover{background:var(--accent);color:var(--bg)}
 .status i{width:7px;height:7px;border-radius:50%;background:#3DDC97;box-shadow:0 0 10px #3DDC97}
 
 /* orbit */
@@ -104,6 +106,9 @@ section{padding-block:110px}
 .sg h4{font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);font-weight:400;text-align:center;margin-bottom:22px}
 .balls{display:flex;flex-wrap:wrap;justify-content:center;gap:18px 22px}
 .ball{display:flex;flex-direction:column;align-items:center;gap:10px;width:86px;font-size:12.5px;text-align:center;color:var(--muted);line-height:1.2}
+.sg.more .ball{width:74px;font-size:11.5px}
+.sg.more .ball .orb{width:46px;height:46px;padding:11px}
+.sg.more .orb .t{font-size:10.5px}
 .ball .orb{width:64px;height:64px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff,var(--ball) 55%,#CFC6D8);display:grid;place-items:center;padding:15px;box-shadow:0 10px 30px rgba(0,0,0,.45),inset -6px -8px 14px rgba(127,64,255,.18);animation:bob 4s ease-in-out infinite;animation-delay:var(--d);transition:transform .3s,box-shadow .3s}
 .ball:hover .orb{transform:scale(1.12);box-shadow:0 10px 40px rgba(170,66,255,.5),inset -6px -8px 14px rgba(127,64,255,.18)}
 .ball:hover{color:var(--ink)}
@@ -221,6 +226,7 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:13px;display:flex;ju
         <h2 data-i18n="hello"></h2>
         <h1>Gabriel<br>Leão</h1>
         <div class="status"><i aria-hidden="true"></i><span data-i18n="status"></span></div>
+        <div><a class="cvbtn" id="cv-top" href="cv-gabriel-leao.pdf" download><span data-i18n="cvBtn"></span> ↓</a></div>
       </div>
       <div class="orbit" id="orbit" aria-hidden="true">
         <div class="ring" id="ringOuter"></div>
@@ -284,10 +290,12 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:13px;display:flex;ju
         <div class="cbox">
           <h4>Social</h4>
           <a class="v" href="https://linkedin.com/in/codewithgabs" target="_blank" rel="noopener">LinkedIn ↗</a><br>
+          <a class="v" href="https://github.com/CodeWithGabs" target="_blank" rel="noopener">GitHub ↗</a><br>
           <a class="v" href="https://wa.me/5562984638219" target="_blank" rel="noopener">WhatsApp ↗</a>
         </div>
         <div class="cbox">
           <p class="sign" data-i18n="sign"></p>
+          <a class="cvbtn" id="cv-bottom" href="cv-gabriel-leao.pdf" download style="margin-top:22px"><span data-i18n="cvBtn"></span> ↓</a>
         </div>
       </div>
     </section>
@@ -301,7 +309,7 @@ const ICONS = {"angular":"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBl
 
 const T = {
   pt:{
-    nAbout:"Sobre", nCareer:"Carreira", nMine:"Meus projetos", nWork:"Clientes", nContact:"Contato",
+    nAbout:"Sobre", nCareer:"Carreira", nMine:"Meus projetos", cvBtn:"Baixar CV em PDF", nWork:"Clientes", nContact:"Contato",
     mineT:"Meus <b>projetos</b>", visit:"Visitar site", zoom:"Toque fora da imagem para fechar", close:"Fechar",
     hello:"Olá! Eu sou", status:"Disponível para oportunidades e freelas",
     roleA:"Desenvolvedor", rot:["Backend","Mobile","Frontend","APIs","Integrações"],
@@ -321,11 +329,11 @@ const T = {
       ["Desenvolvedor Full Stack","CRIAR · IFG","IFG","Migração de uma aplicação móvel institucional para uma plataforma web usada em todo o Instituto Federal de Goiás, com Angular e Java."],
       ["Sistemas de Informação","Instituto Federal de Goiás","Atual","Bacharelado em andamento: desenvolvimento web, bancos de dados, engenharia de software, nuvem e DevOps."],
     ],
-    groups:["Linguagens","Backend","Frontend & Mobile","Dados","Nuvem & DevOps","Integrações & IA"],
+    groups:["Onde sou mais forte","Também trabalho com"],
     names:{},
   },
   en:{
-    nAbout:"About", nCareer:"Career", nMine:"My projects", nWork:"Client work", nContact:"Contact",
+    nAbout:"About", nCareer:"Career", nMine:"My projects", cvBtn:"Download CV (PDF)", nWork:"Client work", nContact:"Contact",
     mineT:"My <b>projects</b>", visit:"Visit site", zoom:"Click outside the image to close", close:"Close",
     hello:"Hello! I'm", status:"Open to opportunities and freelance",
     roleA:"Developer", rot:["Backend","Mobile","Frontend","APIs","Integrations"],
@@ -345,18 +353,14 @@ const T = {
       ["Full Stack Developer","CRIAR · IFG","IFG","Migrated an institutional mobile app to a web platform used across the Federal Institute of Goiás, with Angular and Java."],
       ["Information Systems","Federal Institute of Goiás","Now","B.Sc. in progress: web development, databases, software engineering, cloud and DevOps."],
     ],
-    groups:["Languages","Backend","Frontend & Mobile","Data","Cloud & DevOps","Integrations & AI"],
+    groups:["Where I'm strongest","Also worked with"],
     names:{"Filas e mensageria":"Queues & messaging","Processamento de imagem":"Image processing","IA":"AI"},
   }
 };
 
 const STACK = [
-  [["PHP","php"],["Java","java"],["Python","python"],["JavaScript","javascript"],["TypeScript","typescript"],["Node.js","nodejs"]],
-  [["Laravel","laravel"],["Symfony","symfony"],["CodeIgniter","codeigniter"],["CakePHP","cakephp"],["Spring Boot","spring"],["Django","django"],["Flask","flask"],["FastAPI","fastapi"]],
-  [["Angular","angular"],["Vue.js","vuejs"],["React","react"],["jQuery","jquery"],["Flutter","flutter"],["Ionic","ionic"]],
-  [["PostgreSQL","postgresql"],["MySQL","mysql"],["SQL Server","sqlserver"],["Redis","redis"]],
-  [["AWS","aws"],["Amazon S3","S3"],["Docker","docker"],["Git Flow","git"],["CI/CD","CI"],["Grafana","grafana"]],
-  [["n8n","n8n"],["SAP","SAP"],["Filas e mensageria","MQ"],["Processamento de imagem","IMG"],["IA","AI"]],
+  [["PHP · Laravel","laravel"],["Java · Spring Boot","spring"],["TypeScript","typescript"],["React","react"],["Angular","angular"],["Flutter","flutter"],["PostgreSQL","postgresql"],["Docker","docker"],["AWS","aws"]],
+  [["Python","python"],["JavaScript","javascript"],["Node.js","nodejs"],["Symfony","symfony"],["CodeIgniter","codeigniter"],["CakePHP","cakephp"],["Django","django"],["Flask","flask"],["FastAPI","fastapi"],["Vue.js","vuejs"],["jQuery","jquery"],["Ionic","ionic"],["MySQL","mysql"],["SQL Server","sqlserver"],["Redis","redis"],["Amazon S3","S3"],["Git Flow","git"],["CI/CD","CI"],["Grafana","grafana"],["n8n","n8n"],["SAP","SAP"],["Filas e mensageria","MQ"],["Processamento de imagem","IMG"],["IA","AI"]],
 ];
 
 const WORKS = [
@@ -489,12 +493,13 @@ function render(){
     `<div class="job"><div class="job-l"><div><h4>${role}</h4><h5>${co}</h5></div><span class="yr">${yr}</span></div><p>${txt}</p></div>`).join("") + `<span class="dot"></span>`;
   let d = 0;
   document.getElementById("stackEl").innerHTML = STACK.map((techs,i) =>
-    `<div class="sg"><h4>${t.groups[i]}</h4><div class="balls">${techs.map(([n,k]) => {
+    `<div class="sg${i ? " more" : ""}"><h4>${t.groups[i]}</h4><div class="balls">${techs.map(([n,k]) => {
       d += .37;
       const inside = ICONS[k] ? `<img src="${ICONS[k]}" alt="">` : `<span class="t">${k}</span>`;
       return `<div class="ball"><span class="orb" style="--d:-${(d%4).toFixed(2)}s">${inside}</span>${label(n)}</div>`;
     }).join("")}</div></div>`).join("");
   renderProducts();
+  document.querySelectorAll(".cvbtn").forEach(el => { el.href = lang === "pt" ? "cv-gabriel-leao.pdf" : "cv-gabriel-leao-en.pdf"; });
   document.getElementById("works").innerHTML = WORKS.map(w => {
     const [sec,title,txt] = w[lang];
     return `<article class="work"><span class="sec">${sec}</span><h3>${title}</h3><p>${txt}</p>${

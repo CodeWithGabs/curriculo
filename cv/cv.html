@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Gabriel Leão — CV</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap">
+<style>
+@page{size:A4;margin:13mm 14mm}
+*{box-sizing:border-box}
+body{margin:0;font:400 10.2pt/1.42 "Geist",system-ui,sans-serif;color:#1d1a21;background:#fff}
+h1{font-size:23pt;line-height:1;margin:0;font-weight:700;letter-spacing:-.01em}
+.role{font-size:12pt;color:#6b3fd6;font-weight:500;margin:4px 0 8px}
+.contact{display:flex;flex-wrap:wrap;gap:3px 14px;font-size:9.2pt;color:#4a4450}
+.contact a{color:inherit;text-decoration:none}
+h2{font-size:9pt;letter-spacing:.16em;text-transform:uppercase;color:#6b3fd6;margin:15px 0 6px;padding-bottom:4px;border-bottom:1px solid #e4dff0}
+p{margin:0}
+.item{margin-bottom:9px}
+.head{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.head b{font-size:10.6pt}
+.head span{color:#6b6470;font-size:9.2pt;white-space:nowrap}
+.sub{color:#4a4450;font-size:9.4pt}
+ul{margin:3px 0 0;padding-left:15px}
+li{margin:1.5px 0}
+.skills p{margin-bottom:3px}
+.skills b{font-weight:600}
+</style>
+</head>
+<body>
+<header>
+  <h1>Gabriel Luiz Gonçalves Leão</h1>
+  <p class="role" data-t="role"></p>
+  <div class="contact">
+    <a href="mailto:g.leao.academico2@gmail.com">g.leao.academico2@gmail.com</a>
+    <a href="https://wa.me/5562984638219">+55 62 98463-8219</a>
+    <a href="https://linkedin.com/in/codewithgabs">linkedin.com/in/codewithgabs</a>
+    <a href="https://github.com/CodeWithGabs">github.com/CodeWithGabs</a>
+    <a href="https://codewithgabs.github.io/curriculo/">codewithgabs.github.io/curriculo</a>
+  </div>
+</header>
+<main id="main"></main>
+<script>
+const D = {
+pt:{role:"Desenvolvedor Full Stack · Goiânia, GO",
+ sec:["Resumo","Experiência","Projetos próprios","Formação","Competências"],
+ summary:"Desenvolvedor Full Stack com 4 anos criando plataformas web, aplicativos, APIs e serviços de dados. Trabalho em produtos de trânsito em larga escala, agronegócio, laboratórios, saúde e fintech, do design à implantação e ao monitoramento. Mantenho três produtos próprios, dois deles no ar.",
+ jobs:[
+  ["Desenvolvedor Full Stack","Sysout","2024 – atual",[
+   "Monitoramento de trânsito em larga escala: APIs, captura e processamento de imagens, app para forças policiais e plataforma web (Java, PHP, Python, PostgreSQL, Redis).",
+   "Gestão de produção de sementes no agronegócio: módulos integrados de CRM, operações de campo, finanças e planejamento.",
+   "Gestão clínica e hospitalar (Java, Angular), gestão laboratorial com plataforma web e app integrados, e funcionalidades do app de uma loja digital bancária (Flutter).",
+   "Filas e processamento assíncrono, integrações entre sistemas, otimização de desempenho, CI/CD na AWS com Docker e monitoramento em produção."]],
+  ["Desenvolvedor Full Stack","CRIAR · Instituto Federal de Goiás","",[
+   "Migração de uma aplicação móvel institucional para uma plataforma web usada em todo o IFG, com Angular e Java."]]],
+ prods:[
+  ["Kapi","appkapi.com.br","Gerenciador de finanças pessoais com mentora financeira por IA (Claude): dashboard com saldo projetado, cartões e faturas, orçamentos, metas e projeção patrimonial. Laravel, React, TypeScript, PostgreSQL."],
+  ["Amonita Edu","amonitaedu.com.br","Plataforma de estudos para residência médica, concursos e vestibulares, com repetição espaçada, flashcards, banco de questões e cronograma inteligente. Next.js."],
+  ["Pulso","em breve na Google Play","App de treino e nutrição com coach de IA, site e painel web para personal trainers. Flutter, Laravel, React, PostgreSQL, Gemini, Firebase."]],
+ edu:["Bacharelado em Sistemas de Informação","Instituto Federal de Goiás","Em andamento"],
+ skills:[["Principais","PHP/Laravel, Java/Spring Boot, TypeScript, React, Angular, Flutter, PostgreSQL, Docker, AWS"],
+         ["Também","Python (Django, Flask, FastAPI), Node.js, Vue.js, Symfony, CodeIgniter, CakePHP, Ionic, MySQL, SQL Server, Redis, Amazon S3, CI/CD, Git Flow, Grafana, n8n, SAP, filas e mensageria, processamento de imagem, IA"]]},
+en:{role:"Full Stack Developer · Goiânia, Brazil",
+ sec:["Summary","Experience","Own products","Education","Skills"],
+ summary:"Full Stack Developer with 4 years building web platforms, apps, APIs and data services. I work on large-scale traffic monitoring, agribusiness, laboratory, healthcare and fintech products, from design to deployment and monitoring. I also run three products of my own, two of them live.",
+ jobs:[
+  ["Full Stack Developer","Sysout","2024 – present",[
+   "Large-scale traffic monitoring: APIs, image capture and processing, an app for police forces and a web platform (Java, PHP, Python, PostgreSQL, Redis).",
+   "Seed production management for agribusiness: integrated CRM, field operations, finance and planning modules.",
+   "Clinic and hospital management (Java, Angular), lab management with an integrated web platform and app, and app features for a digital banking store (Flutter).",
+   "Queues and async processing, system integrations, performance tuning, CI/CD on AWS with Docker, and monitoring in production."]],
+  ["Full Stack Developer","CRIAR · Federal Institute of Goiás","",[
+   "Migrated an institutional mobile app to a web platform used across the institute, with Angular and Java."]]],
+ prods:[
+  ["Kapi","appkapi.com.br","Personal finance manager with an AI financial mentor (Claude): projected-balance dashboard, credit cards and statements, budgets, goals and net-worth projection. Laravel, React, TypeScript, PostgreSQL."],
+  ["Amonita Edu","amonitaedu.com.br","Study platform for medical residency, public exams and university entrance exams, with spaced repetition, flashcards, a question bank and a smart schedule. Next.js."],
+  ["Pulso","coming soon to Google Play","Workout and nutrition app with an AI coach, plus a website and a web panel for personal trainers. Flutter, Laravel, React, PostgreSQL, Gemini, Firebase."]],
+ edu:["B.Sc. in Information Systems","Federal Institute of Goiás","In progress"],
+ skills:[["Core","PHP/Laravel, Java/Spring Boot, TypeScript, React, Angular, Flutter, PostgreSQL, Docker, AWS"],
+         ["Also","Python (Django, Flask, FastAPI), Node.js, Vue.js, Symfony, CodeIgniter, CakePHP, Ionic, MySQL, SQL Server, Redis, Amazon S3, CI/CD, Git Flow, Grafana, n8n, SAP, queues and messaging, image processing, AI"]]}
+};
+const L = new URLSearchParams(location.search).get("lang") === "en" ? "en" : "pt", d = D[L];
+document.documentElement.lang = L === "pt" ? "pt-BR" : "en";
+document.querySelector('[data-t="role"]').textContent = d.role;
+const [s1,s2,s3,s4,s5] = d.sec;
+document.getElementById("main").innerHTML =
+ `<h2>${s1}</h2><p>${d.summary}</p>` +
+ `<h2>${s2}</h2>` + d.jobs.map(([r,c,y,b]) => `<div class="item"><div class="head"><b>${r} · ${c}</b><span>${y}</span></div><ul>${b.map(x=>`<li>${x}</li>`).join("")}</ul></div>`).join("") +
+ `<h2>${s3}</h2>` + d.prods.map(([n,u,t]) => `<div class="item"><div class="head"><b>${n}</b><span>${u}</span></div><p class="sub">${t}</p></div>`).join("") +
+ `<h2>${s4}</h2><div class="item"><div class="head"><b>${d.edu[0]} · ${d.edu[1]}</b><span>${d.edu[2]}</span></div></div>` +
+ `<h2>${s5}</h2><div class="skills">${d.skills.map(([k,v]) => `<p><b>${k}:</b> ${v}</p>`).join("")}</div>`;
+</script>
+</body>
+</html>
