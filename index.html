@@ -135,7 +135,48 @@ section{padding-block:110px}
 .sign span{color:var(--accent)}
 footer{padding-block:40px 60px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line)}
 
+
+/* meus projetos (produtos autorais) */
+.prods{display:grid;gap:120px}
+.prod{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.25fr);gap:56px;align-items:center}
+.prod:nth-child(even) .prod-media{order:-1}
+.prod-k{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)}
+.prod h3{font-size:clamp(34px,4vw,54px);line-height:1;font-weight:600;letter-spacing:-.01em;margin:10px 0 6px}
+.prod .tag{font-size:clamp(17px,1.6vw,20px);color:var(--ink);font-weight:500;margin-bottom:16px}
+.prod .desc{color:var(--muted);font-size:15px;max-width:54ch}
+.prod ul{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-size:14.5px;color:#CFC8D4}
+.prod li{display:flex;gap:10px}
+.prod li::before{content:"";flex:none;width:6px;height:6px;margin-top:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent)}
+.prod-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:22px}
+.badge{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--c,#3DDC97);box-shadow:0 0 8px var(--c,#3DDC97)}
+.visit{display:inline-flex;align-items:center;gap:8px;font-weight:500;font-size:14px;padding:9px 16px;border-radius:999px;background:var(--ink);color:var(--bg)}
+.visit:hover{background:var(--accent);color:var(--bg)}
+.prod .pills{margin-top:16px}
+.prod-media{position:relative;padding:0 0 36px}
+.browser{border-radius:12px;overflow:hidden;background:#17121b;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 60px rgba(127,64,255,.15)}
+.browser .bar{display:flex;gap:6px;align-items:center;padding:10px 12px;background:#1d1722;border-bottom:1px solid var(--line)}
+.browser .bar i{width:9px;height:9px;border-radius:50%;background:#3a3140}
+.browser .bar span{margin-left:10px;font-size:11.5px;color:var(--muted);background:#120e15;border-radius:6px;padding:3px 10px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.shot{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.shot img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.phone{position:absolute;right:-14px;bottom:0;width:27%;min-width:110px;border-radius:26px;padding:7px;background:#0d0a10;border:1px solid #3a3140;box-shadow:0 24px 60px rgba(0,0,0,.6)}
+.phone .shot img{aspect-ratio:390/844;border-radius:20px}
+.thumbs{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;padding-right:28%}
+.thumbs button{width:72px;height:46px;padding:0;border-radius:8px;overflow:hidden;border:1px solid var(--line);background:#17121b;cursor:pointer;opacity:.65;transition:opacity .2s,border-color .2s}
+.thumbs button.m{width:30px}
+.thumbs button:hover,.thumbs button[aria-pressed="true"]{opacity:1;border-color:var(--accent)}
+.thumbs img{width:100%;height:100%;object-fit:cover;object-position:top}
+.lb{position:fixed;inset:0;z-index:60;background:rgba(8,6,10,.92);display:grid;place-items:center;padding:24px;cursor:zoom-out}
+.lb[hidden]{display:none}
+.lb img{max-width:min(1400px,100%);max-height:88vh;border-radius:10px;box-shadow:0 30px 90px rgba(0,0,0,.7)}
+.lb p{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:var(--muted);font-size:13px}
+.lb .x{position:absolute;top:16px;right:18px;font:500 13px var(--sans);color:var(--ink);background:none;border:1px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer}
+
 @media (max-width:980px){
+  .prod{grid-template-columns:minmax(0,1fr);gap:36px}
+  .prod:nth-child(even) .prod-media{order:0}
+  .prods{gap:90px}
   .hero{grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center;min-height:0}
   .role{justify-self:center}
   .nav nav{display:none}
@@ -147,6 +188,9 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:13px;display:flex;ju
   section{padding-block:80px}
 }
 @media (max-width:620px){
+  .phone{right:-4px;width:30%;min-width:0;border-radius:18px;padding:5px}
+  .phone .shot img{border-radius:14px}
+  .thumbs{padding-right:32%}
   .works{grid-template-columns:minmax(0,1fr)}
   .planet{width:36px;height:36px;margin:-18px}
   .planet span{padding:7px}
@@ -163,7 +207,7 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:13px;display:flex;ju
   <header class="nav">
     <span class="logo-txt">GL</span>
     <div class="nav-r">
-      <nav aria-label="Menu"><a href="#sobre" data-i18n="nAbout"></a><a href="#carreira" data-i18n="nCareer"></a><a href="#projetos" data-i18n="nWork"></a><a href="#contato" data-i18n="nContact"></a></nav>
+      <nav aria-label="Menu"><a href="#sobre" data-i18n="nAbout"></a><a href="#carreira" data-i18n="nCareer"></a><a href="#meus-projetos" data-i18n="nMine"></a><a href="#projetos" data-i18n="nWork"></a><a href="#contato" data-i18n="nContact"></a></nav>
       <div class="lang" role="group" aria-label="Idioma / Language">
         <button type="button" data-lang="pt" aria-pressed="true">PT</button>
         <button type="button" data-lang="en" aria-pressed="false">EN</button>
@@ -218,6 +262,11 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:13px;display:flex;ju
       <div class="stack" id="stackEl"></div>
     </section>
 
+    <section id="meus-projetos">
+      <h2 class="title grad" data-i18n="mineT"></h2>
+      <div class="prods" id="prods"></div>
+    </section>
+
     <section id="projetos">
       <h2 class="title" data-i18n="workT"></h2>
       <div class="works" id="works"></div>
@@ -252,7 +301,8 @@ const ICONS = {"angular":"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBl
 
 const T = {
   pt:{
-    nAbout:"Sobre", nCareer:"Carreira", nWork:"Projetos", nContact:"Contato",
+    nAbout:"Sobre", nCareer:"Carreira", nMine:"Meus projetos", nWork:"Clientes", nContact:"Contato",
+    mineT:"Meus <b>projetos</b>", visit:"Visitar site", zoom:"Toque fora da imagem para fechar", close:"Fechar",
     hello:"Olá! Eu sou", status:"Disponível para oportunidades e freelas",
     roleA:"Desenvolvedor", rot:["Backend","Mobile","Frontend","APIs","Integrações"],
     aboutK:"Sobre mim",
@@ -262,7 +312,7 @@ const T = {
     do2:"Integro e sustento", do2s:"Dados · Nuvem · Observabilidade",
     do2p:"Integrações entre sistemas, filas e processamento assíncrono, otimização de desempenho, CI/CD na AWS com Docker e monitoramento em produção.",
     careerT:"Minha carreira <b>&amp;</b><br>experiência",
-    stackT:"Minha stack", workT:"Projetos",
+    stackT:"Minha stack", workT:"Projetos para clientes",
     contactT:"Contato", copy:"copiar", copied:"copiado ✓", selected:"selecionado",
     sign:"Desenvolvido e<br>codado por <br><span>Gabriel Leão</span>",
     footer:"Goiânia, GO · Brasil",
@@ -275,7 +325,8 @@ const T = {
     names:{},
   },
   en:{
-    nAbout:"About", nCareer:"Career", nWork:"Work", nContact:"Contact",
+    nAbout:"About", nCareer:"Career", nMine:"My projects", nWork:"Client work", nContact:"Contact",
+    mineT:"My <b>projects</b>", visit:"Visit site", zoom:"Click outside the image to close", close:"Close",
     hello:"Hello! I'm", status:"Open to opportunities and freelance",
     roleA:"Developer", rot:["Backend","Mobile","Frontend","APIs","Integrations"],
     aboutK:"About me",
@@ -285,7 +336,7 @@ const T = {
     do2:"Integrate & run", do2s:"Data · Cloud · Observability",
     do2p:"System integrations, queues and async processing, performance tuning, CI/CD on AWS with Docker, and monitoring in production.",
     careerT:"My career <b>&amp;</b><br>experience",
-    stackT:"My stack", workT:"Work",
+    stackT:"My stack", workT:"Client work",
     contactT:"Contact", copy:"copy", copied:"copied ✓", selected:"selected",
     sign:"Designed and<br>developed by <br><span>Gabriel Leão</span>",
     footer:"Goiânia, Brazil",
@@ -329,6 +380,96 @@ const WORKS = [
    en:["Education","IFG web platform","Migrated a mobile app to the web, used across the Federal Institute of Goiás."]},
 ];
 
+// meus projetos: produtos autorais
+const PRODUCTS = [
+  {id:"pulso", name:"Pulso", url:null, host:"Pulso · site e painel do personal",
+   stack:["Flutter","Laravel","React","PostgreSQL","Gemini (IA)","Firebase"],
+   status:{c:"#F5B83D", pt:"Em breve na Google Play", en:"Coming soon to Google Play"},
+   shots:[["pulso-site.webp","d"],["pulso-painel-alunos.webp","d"],["pulso-painel-aluno.webp","d"],["pulso-app-home.webp","m"],["pulso-site-mobile.webp","m"]],
+   pt:{k:"App mobile · Saúde e fitness", tag:"Treino e dieta que se ajustam a você.",
+       desc:"Aplicativo de treino e nutrição com coach de IA, site e painel web para personal trainers acompanharem seus alunos.",
+       bullets:["Planos de treino que evoluem a cada sessão, com sugestão de carga","Metas de nutrição calculadas e registro de refeição por foto com IA","Coach de IA que conversa e só muda o plano com aprovação","Painel do personal: alunos, planos, progresso e recados","Sincronização offline, login com Google e notificações push"],
+       alt:["Site do Pulso","Painel do personal: lista de alunos","Painel do personal: visão do aluno","App: tela Hoje","Site no celular"]},
+   en:{k:"Mobile app · Health & fitness", tag:"Workouts and diet that adapt to you.",
+       desc:"Workout and nutrition app with an AI coach, plus a website and a web panel for personal trainers to follow their clients.",
+       bullets:["Workout plans that progress every session, with load suggestions","Calculated nutrition targets and AI meal logging from a photo","An AI coach that chats and only changes the plan with your approval","Trainer panel: clients, plans, progress and messages","Offline sync, Google sign-in and push notifications"],
+       alt:["Pulso website","Trainer panel: client list","Trainer panel: client overview","App: Today screen","Website on mobile"]}},
+  {id:"kapi", name:"Kapi", url:null, host:"Kapi · finanças pessoais",
+   stack:["Laravel","React","TypeScript","Inertia","Tailwind","PostgreSQL","Claude (IA)"],
+   status:{c:"#C2A4FF", pt:"Web + API para app mobile", en:"Web + mobile app API"},
+   shots:[["kapi-dashboard.webp","d"],["kapi-site.webp","d"],["kapi-orcamentos.webp","d"],["kapi-planejamento.webp","d"],["kapi-metas.webp","d"],["kapi-mobile-dashboard.webp","m"],["kapi-mobile-metas.webp","m"]],
+   pt:{k:"Plataforma web · Finanças pessoais", tag:"A grana sob controle, do seu jeito.",
+       desc:"Gerenciador financeiro pessoal com a CapivaraAI, uma mentora financeira com IA que conversa com você sobre o seu dinheiro.",
+       bullets:["Dashboard com saldo atual e projetado, fluxo de caixa e gastos por categoria","Contas, cartões com faturas, recorrências e parcelamentos automáticos","Orçamentos mensais por categoria com alertas de estouro","Metas com aportes e projeção patrimonial de até 10 anos","Login com Google, 2FA e passkeys, compartilhamento em família e cobrança via Pix"],
+       alt:["Kapi: visão geral","Site do Kapi","Orçamentos do mês","Planejamento financeiro","Metas financeiras","App no celular: visão geral","App no celular: metas"]},
+   en:{k:"Web platform · Personal finance", tag:"Your money under control, your way.",
+       desc:"Personal finance manager with CapivaraAI, an AI financial mentor that talks with you about your money.",
+       bullets:["Dashboard with current and projected balance, cash flow and spending by category","Accounts, credit cards with statements, automatic recurrences and installments","Monthly budgets per category with overspending alerts","Goals with contributions and a net-worth projection of up to 10 years","Google sign-in, 2FA and passkeys, family sharing and Pix billing"],
+       alt:["Kapi: overview","Kapi website","Monthly budgets","Financial planning","Financial goals","Mobile: overview","Mobile: goals"]}},
+  {id:"amonita", name:"Amonita Edu", url:"https://amonitaedu.com.br/", host:"amonitaedu.com.br",
+   stack:["Next.js","React"],
+   status:{c:"#3DDC97", pt:"No ar", en:"Live"},
+   shots:[["amonita-site.webp","d"],["amonita-dashboard.webp","d"],["amonita-mobile.webp","m"]],
+   pt:{k:"Plataforma web · Educação", tag:"Seu estudo, perfeitamente organizado.",
+       desc:"Plataforma de estudos para residência médica, concursos e vestibulares, com cada recurso baseado em ciência da aprendizagem.",
+       bullets:["Cronograma inteligente e agenda dinâmica de estudos","Revisões por repetição espaçada e flashcards","Banco de questões e análise de desempenho","Modo foco com pomodoro e dashboard de progresso"],
+       alt:["Site do Amonita Edu","Dashboard da plataforma","Site no celular"]},
+   en:{k:"Web platform · Education", tag:"Your studies, perfectly organized.",
+       desc:"Study platform for medical residency, public exams and university entrance exams, with every feature grounded in learning science.",
+       bullets:["Smart study plan and dynamic schedule","Spaced-repetition reviews and flashcards","Question bank and performance analytics","Focus mode with pomodoro and a progress dashboard"],
+       alt:["Amonita Edu website","Platform dashboard","Website on mobile"]}},
+];
+
+function renderProducts(){
+  const t = T[lang];
+  document.getElementById("prods").innerHTML = PRODUCTS.map(p => {
+    const c = p[lang];
+    const d = p.shots.findIndex(s => s[1] === "d"), m = p.shots.findIndex(s => s[1] === "m");
+    const shot = (i, cls) => `<button class="shot" type="button" data-p="${p.id}" data-i="${i}" aria-label="${c.alt[i]}"><img src="img/${p.shots[i][0]}" alt="${c.alt[i]}" loading="lazy" ${cls === "d" ? 'width="1440" height="900"' : 'width="390" height="844"'}></button>`;
+    return `<article class="prod" id="p-${p.id}">
+      <div>
+        <span class="prod-k">${c.k}</span>
+        <h3>${p.name || p.id.charAt(0).toUpperCase() + p.id.slice(1)}</h3>
+        <p class="tag">${c.tag}</p>
+        <p class="desc">${c.desc}</p>
+        <ul>${c.bullets.map(b => `<li>${b}</li>`).join("")}</ul>
+        <div class="pills">${p.stack.map(s => `<span>${s}</span>`).join("")}</div>
+        <div class="prod-meta"><span class="badge" style="--c:${p.status.c}"><i></i>${p.status[lang]}</span>${p.url ? `<a class="visit" href="${p.url}" target="_blank" rel="noopener">${t.visit} ↗</a>` : ""}</div>
+      </div>
+      <div class="prod-media">
+        <div class="browser"><div class="bar"><i></i><i></i><i></i><span>${p.host}</span></div><div class="main-d">${d >= 0 ? shot(d, "d") : ""}</div></div>
+        ${m >= 0 ? `<div class="phone"><div class="main-m">${shot(m, "m")}</div></div>` : ""}
+        <div class="thumbs">${p.shots.map(([f, k], i) => `<button type="button" class="${k}" data-p="${p.id}" data-i="${i}" aria-pressed="${i === d || i === m}" aria-label="${c.alt[i]}"><img src="img/${f}" alt="" loading="lazy"></button>`).join("")}</div>
+      </div>
+    </article>`;
+  }).join("");
+}
+
+const lb = document.createElement("div");
+lb.className = "lb"; lb.hidden = true;
+lb.innerHTML = `<button class="x" type="button"></button><img alt=""><p></p>`;
+document.body.appendChild(lb);
+const closeLb = () => { lb.hidden = true; };
+lb.addEventListener("click", e => { if (e.target.tagName !== "IMG") closeLb(); });
+addEventListener("keydown", e => { if (e.key === "Escape") closeLb(); });
+
+document.getElementById("prods").addEventListener("click", e => {
+  const b = e.target.closest("button[data-p]"); if (!b) return;
+  const p = PRODUCTS.find(x => x.id === b.dataset.p), i = +b.dataset.i, [file, kind] = p.shots[i];
+  if (b.closest(".thumbs")) {
+    // miniatura: troca a imagem principal (computador ou celular)
+    const art = b.closest(".prod"), slot = art.querySelector(kind === "d" ? ".main-d" : ".main-m");
+    const img = slot.querySelector("img"), btn = slot.querySelector("button");
+    img.src = `img/${file}`; img.alt = p[lang].alt[i]; btn.dataset.i = i; btn.setAttribute("aria-label", p[lang].alt[i]);
+    art.querySelectorAll(`.thumbs button.${kind}`).forEach(t => t.setAttribute("aria-pressed", String(t === b)));
+    return;
+  }
+  lb.querySelector("img").src = `img/${file}`; lb.querySelector("img").alt = p[lang].alt[i];
+  lb.querySelector("p").textContent = p[lang].alt[i];
+  lb.querySelector(".x").textContent = T[lang].close;
+  lb.hidden = false;
+});
+
 // orbit planets
 const outer = ["php","java","python","angular","flutter","laravel","react","docker","postgresql","vuejs"];
 const inner = ["aws","redis","typescript","nodejs","spring","mysql"];
@@ -353,6 +494,7 @@ function render(){
       const inside = ICONS[k] ? `<img src="${ICONS[k]}" alt="">` : `<span class="t">${k}</span>`;
       return `<div class="ball"><span class="orb" style="--d:-${(d%4).toFixed(2)}s">${inside}</span>${label(n)}</div>`;
     }).join("")}</div></div>`).join("");
+  renderProducts();
   document.getElementById("works").innerHTML = WORKS.map(w => {
     const [sec,title,txt] = w[lang];
     return `<article class="work"><span class="sec">${sec}</span><h3>${title}</h3><p>${txt}</p>${
